@@ -38,20 +38,13 @@ class ModSeeder extends Seeder
 
         foreach ($mods as $mod) {
             $versions = $mod['versions'];
-            $tags = $mod['tags'];
 
             unset($mod['versions']);
-            unset($mod['tags']);
 
             $modModel = \App\Models\Mod::create($mod);
 
             foreach ($versions as $version) {
                 $modModel->versions()->create($version);
-            }
-
-            foreach ($tags as $tagName) {
-                $tag = \App\Models\Tag::firstOrCreate(['name' => $tagName]);
-                $modModel->tags()->attach($tag);
             }
         }
     }

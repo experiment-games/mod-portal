@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Tags\Tag;
 
 class TagSeeder extends Seeder
 {
@@ -15,6 +15,7 @@ class TagSeeder extends Seeder
         'Half-Life Universe',
         'Horror',
         'Mystery',
+        'Multiplayer',
         'Portal Universe',
         'Racing',
         'Roleplay',
@@ -30,7 +31,7 @@ class TagSeeder extends Seeder
     public function run(): void
     {
         foreach (static::TAGS as $tag) {
-            Tag::create([
+            Tag::findOrCreate([
                 'name' => $tag,
             ]);
         }
