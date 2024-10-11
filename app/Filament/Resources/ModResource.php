@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ModResource\Pages;
 use App\Filament\Resources\ModResource\RelationManagers;
 use App\Models\Mod;
+use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Form;
@@ -21,6 +22,27 @@ class ModResource extends Resource
     protected static ?string $model = Mod::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-puzzle-piece';
+
+    public static function getModelLabel(): string
+    {
+        if (filament_panel_is('admin')) {
+            return 'Mods';
+        }
+
+        return 'My Mods';
+    }
+
+    /**
+     * Only show mods for the current user, unless we're in the admin panel.
+     */
+    public static function getEloquentQuery(): Builder
+    {
+        if (filament_panel_is('admin')) {
+            return parent::getEloquentQuery();
+        }
+
+        return parent::getEloquentQuery()->where('author_id', user()->getKey());
+    }
 
     public static function form(Form $form): Form
     {
