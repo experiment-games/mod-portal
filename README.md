@@ -63,16 +63,16 @@ This web portal allows users to publish their Source Engine Mods based on the [E
     php artisan migrate:fresh --seed
     ```
 
-7. Compile the assets.
-
-    ```bash
-    npm run dev
-    ```
-
-8. Serve the application.
+7. Serve the application.
 
     ```bash
     php artisan serve
+    ```
+
+8. Speed up development by caching the blade icons.
+
+    ```bash
+    php artisan icons:cache
     ```
 
 9. Visit the application in your browser.
