@@ -1,12 +1,18 @@
 # Experiment Web Portal
 
-This web portal allows users to publish their Source Engine Mods based on the [Experiment Source](https://github.com/luttje/experiment-source) project.
+This web portal allows users to publish their Source Engine Mods based on the [Experiment Source](https://github.com/experiment-games/experiment-source) project.
 
 <div align="middle">
 
 ![Experiment Redux logo](./logo.png)
 
 </div>
+
+> [!WARNING]
+> This project is still in early development and is **not yet ready for use**.
+> Additionally it is currently being worked on on-and-off, by a single developer.
+>
+> Check out the [main repository (`experiment-source`)](https://github.com/experiment-games/experiment-source) for more information.
 
 ## Features
 
